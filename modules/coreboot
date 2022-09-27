@@ -95,7 +95,8 @@ coreboot_target := \
 	BUILD_TIMELESS=1 \
 	CFLAGS_x86_32="$(EXTRA_FLAGS)" \
 	CFLAGS_x86_64="$(EXTRA_FLAGS)" \
-	$(MAKE_JOBS)
+	$(MAKE_JOBS) \
+	&& $(MAKE) $(MAKE_JOBS) -C "$(build)/$(coreboot_base_dir)/util/nvramtool" \
 
 coreboot_output := $(CONFIG_COREBOOT_ROM)
 coreboot_output += $(CONFIG_COREBOOT_BOOTBLOCK)
